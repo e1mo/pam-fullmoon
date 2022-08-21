@@ -1,0 +1,21 @@
+[package]
+name = "pam-fullmoon"
+version = "0.1.0"
+edition = "2021"
+authors = ["Moritz 'e1mo' Fromm <git@e1mo.de>"]
+license = "BSD-3-Clause OR MIT"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "pam_fullmoon"
+crate-type = ["cdylib"]
+
+[features]
+default = ["chrono"]
+chrono = ["dep:chrono", "moon_phase/chrono"]
+
+[dependencies]
+#pam = { git = "https://github.com/anowell/pam-rs" }
+chrono = { version = "0.4", optional = true }
+moon_phase = { git = "https://github.com/e1mo/moon-phase", package = "moon-phase", default-features = false }
